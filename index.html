@@ -1,12 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            background: #f2f2f2;
+        }
+
+        .highlight {
+            color: #3a76bf;
+            font-size: 22px;
+        }
+
+        .box {
+            background: #f8f8fa;
+            border: 1px #fff solid;
+            box-shadow: 0 0 3px #ddd;
+            width: 600px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        .profileImg{
+            width: 100%;
+        }
+        .motto {
+            font-size: 12px;
+        }
+    </style>
 </head>
+
 <body>
-    <p>网站建设中....</p>
+    <div id="app">
+        <div class="box">
+            <img class="profileImg"
+                src="https://app.yinxiang.com/files/common-services/binary-datas/c2VydmljZVR5cGU9MiZzZXJ2aWNlRGF0YT17Im5vdGVHdWlkIjoiYmIwMmQxMDItMWNjNC00NzRmLTgxODEtOWNlOGE5MDZjODk2IiwicmVzb3VyY0d1aWQiOiJmZDk4YTIwOS1hMGI1LTRhYzktOTMwNS04MmRkZTdjZDQ0ZmEifQ==" />
+            <p class="highlight">Wang Jun</p>
+            <p class="motto">没心没肺没烦恼 ^_^</p>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!'
+            }
+        })
+    </script>
 </body>
+
 </html>
