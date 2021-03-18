@@ -5,52 +5,88 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>KoonieHome</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- 引入样式 -->
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
     <style>
         body {
             background: #f2f2f2;
+            font-size: 14px;
         }
 
-        .highlight {
+        div {
+            box-sizing: border-box;
+        }
+
+        .name {
             color: #3a76bf;
             font-size: 22px;
+            margin-top: 10px;
         }
 
         .box {
             background: #f8f8fa;
             border: 1px #fff solid;
             box-shadow: 0 0 3px #ddd;
-            width: 600px;
+            width: 900px;
             margin: 0 auto;
             padding: 30px;
         }
 
-        .profileImg{
+        @media screen and (max-width: 900px) {
+            .box {
+                background: #f8f8fa;
+                border: 1px #fff solid;
+                box-shadow: 0 0 3px #ddd;
+                width: 100%;
+                margin: 0 auto;
+                padding: 30px;
+            }
+        }
+
+        .profileImg {
             width: 100%;
         }
+
         .motto {
-            font-size: 12px;
+            font-size: 12px;color: #666;
         }
+
+        .tag-box {display: flex;flex-wrap: nowrap;margin: 5px 0;}
+        .tag-item{margin-right: 5px;}
     </style>
 </head>
 
 <body>
     <div id="app">
         <div class="box">
-            <img class="profileImg"
-                src="https://app.yinxiang.com/files/common-services/binary-datas/c2VydmljZVR5cGU9MiZzZXJ2aWNlRGF0YT17Im5vdGVHdWlkIjoiYmIwMmQxMDItMWNjNC00NzRmLTgxODEtOWNlOGE5MDZjODk2IiwicmVzb3VyY0d1aWQiOiJmZDk4YTIwOS1hMGI1LTRhYzktOTMwNS04MmRkZTdjZDQ0ZmEifQ==" />
-            <p class="highlight">Wang Jun</p>
+            <!-- <img class="profileImg" mode="center"
+                src="https://app.yinxiang.com/files/common-services/binary-datas/c2VydmljZVR5cGU9MiZzZXJ2aWNlRGF0YT17Im5vdGVHdWlkIjoiYmIwMmQxMDItMWNjNC00NzRmLTgxODEtOWNlOGE5MDZjODk2IiwicmVzb3VyY0d1aWQiOiJmZDk4YTIwOS1hMGI1LTRhYzktOTMwNS04MmRkZTdjZDQ0ZmEifQ==" /> -->
+            <p class="name">Wang Jun</p>
             <p class="motto">没心没肺没烦恼 ^_^</p>
+            <div class="tag-box" v-for="(tags,tgArrIndex) in tagList" :key="tgArrIndex">
+                <block class="tag-item" v-for="(tag,index) in tags" :key="index">
+                    <el-tag type="info" size="small">{{ tag }}</el-tag>                
+                </block>
+            </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
     <script>
         var app = new Vue({
             el: '#app',
             data: {
-                message: 'Hello Vue!'
+                tagList: [
+                    ["html5", "css3", "javascript"],
+                    ["vue","微信小程序","uniapp"]
+                ]
             }
         })
+        // app.use(ElementPlus);
+
     </script>
 </body>
 
